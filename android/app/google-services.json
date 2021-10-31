@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "474442999792",
+    "project_id": "horoscope-guide-b453e",
+    "storage_bucket": "horoscope-guide-b453e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474442999792:android:ef827a2ee40546479d9f35",
+        "android_client_info": {
+          "package_name": "com.example.horoscope_guide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474442999792-kvvca0299jqou75o0jgjggq3im3pcfv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZefthcDj5gyMVBXF913aegeV3NYBqT6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474442999792-kvvca0299jqou75o0jgjggq3im3pcfv1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "474442999792-migc5squuhfa47o7tra2o0jsgjjflbs9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.horoscopeGuide"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
