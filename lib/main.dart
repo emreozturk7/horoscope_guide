@@ -1,6 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:horoscope_guide/routes/app_pages.dart';
+import 'package:horoscope_guide/utils/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Main());
 }
 
@@ -9,20 +15,22 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: const Text(
-            'Horoscope Guide',
-            style: TextStyle(
-              color: Colors.black54,
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
-        ),
+    return FutureBuilder(
+      future: Future.delayed(
+        Duration(seconds: 3),
       ),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return GetMaterialApp(
+            initialRoute: Routes.homeView,
+            title: 'Horoscope Guide',
+            getPages: AppPages.routes,
+          );
+        }
+        return FutureBuilder(
+          builder: (context, snapshot) => SplashScreen(),
+        );
+      },
     );
   }
 }
