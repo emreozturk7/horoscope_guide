@@ -6,12 +6,26 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: SizedBox(
-            width: 350,
-            height: 350,
-            child: Lottie.asset('assets/lottie/loading.json'),
-          ),
+        backgroundColor: const Color(0xFF01122C),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 4,
+              child: Image.asset(
+                'assets/horoscopes/horoscope.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Lottie.asset(
+                'assets/lottie/loading.json',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
         ),
       ),
     );
