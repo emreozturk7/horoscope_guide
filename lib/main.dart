@@ -17,7 +17,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: Future.delayed(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
       ),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
