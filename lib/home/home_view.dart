@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horoscope_guide/home/home_controller.dart';
+import 'package:horoscope_guide/routes/app_pages.dart';
 
 class HomeView extends StatelessWidget {
   final HomeController _controller = Get.put(HomeController());
@@ -9,7 +10,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF01122C),
+        backgroundColor: const Color(0xFF01122C),
         title: const Text(
           'Horoscope Guide',
           style: TextStyle(
@@ -19,7 +20,7 @@ class HomeView extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          color: const Color(0xFF01122C),
+          //color: const Color(0xFF01122C),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
@@ -30,77 +31,77 @@ class HomeView extends StatelessWidget {
                 children: [
                   buildHoroscopeCard(
                     context,
-                    'aries',
+                    'ARIES',
                     '21 March - 20 April',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'taurus',
+                    'TAURUS',
                     '21 April - 21 May',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'gemini',
+                    'GEMINI',
                     '22 May - 21 June',
                   ),
                 ],
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Row(
                 children: [
                   buildHoroscopeCard(
                     context,
-                    'cancer',
+                    'CANCER',
                     '22 June - 23 July',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'leo',
+                    'LEO',
                     '24 July - 23 August',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'virgo',
+                    'VIRGO',
                     '24 August - 23 September',
                   ),
                 ],
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Row(
                 children: [
                   buildHoroscopeCard(
                     context,
-                    'libra',
+                    'LIBRA',
                     '24 September - 23 October',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'scorpio',
+                    'SCORPIO',
                     '24 October - 22 November',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'sagittarius',
+                    'SAGITTARIUS',
                     '23 November - 22 December',
                   ),
                 ],
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Row(
                 children: [
                   buildHoroscopeCard(
                     context,
-                    'capricorn',
+                    'CAPRICORN',
                     '23 December - 20 January',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'aquarius',
+                    'AQUARIUS',
                     '21 January - 19 February',
                   ),
                   buildHoroscopeCard(
                     context,
-                    'pisces',
+                    'PISCES',
                     '20 February - 21 March',
                   ),
                 ],
@@ -115,7 +116,9 @@ class HomeView extends StatelessWidget {
   InkWell buildHoroscopeCard(
       BuildContext context, String horoscope, String date) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(Routes.chooseView);
+      },
       child: Column(
         children: [
           Container(
@@ -123,7 +126,8 @@ class HomeView extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 10,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/horoscopes/$horoscope.jpg'),
+                image: AssetImage(
+                    'assets/horoscopes/${horoscope.toLowerCase()}.png'),
               ),
               borderRadius: const BorderRadius.all(
                 Radius.circular(25.0),
@@ -131,11 +135,17 @@ class HomeView extends StatelessWidget {
             ),
           ),
           Text(
+            horoscope,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          Text(
             date,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 8,
-              color: Colors.white,
             ),
           ),
         ],
