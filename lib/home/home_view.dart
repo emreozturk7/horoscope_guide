@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_guide/database.dart';
 import 'package:horoscope_guide/home/home_controller.dart';
 import 'package:horoscope_guide/routes/app_pages.dart';
 
 class HomeView extends StatelessWidget {
+  Database database = Database();
   final HomeController _controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          database.readData();
+        },
+      ),
       appBar: AppBar(
         backgroundColor: const Color(0xFF01122C),
         title: const Text(
