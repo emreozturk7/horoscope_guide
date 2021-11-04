@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_guide/database.dart';
-import 'package:horoscope_guide/home/home_controller.dart';
+import 'package:horoscope_guide/service/database.dart';
 import 'package:horoscope_guide/routes/app_pages.dart';
+import 'package:horoscope_guide/view/home/home_controller.dart';
 
 class HomeView extends StatelessWidget {
   Database database = Database();

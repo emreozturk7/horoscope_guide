@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_guide/detail/detail_controller.dart';
+import 'package:horoscope_guide/view/detail/detail_controller.dart';
 
 class DetailView extends StatelessWidget {
   final DetailController _controller = Get.put(DetailController());
