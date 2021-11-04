@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
-import 'package:horoscope_guide/choose/choose_view.dart';
-import 'package:horoscope_guide/detail/detail_view.dart';
-import 'package:horoscope_guide/home/home_view.dart';
+import 'package:horoscope_guide/view/choose/choose_view.dart';
+import 'package:horoscope_guide/view/detail/detail_view.dart';
+import 'package:horoscope_guide/view/home/home_view.dart';
+import 'package:horoscope_guide/view/which/which_horoscope.dart';
 
 part 'app_routes.dart';
 
@@ -16,6 +17,10 @@ class AppPages {
     GetPage(
       name: _Paths.detailView,
       page: () => DetailView(),
+    ),
+    GetPage(
+      name: _Paths.whichHoroscope,
+      page: () => WhichHoroscope(),
     ),
     GetPage(
       name: _Paths.chooseView,

@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_guide/service/database.dart';
 import 'package:horoscope_guide/routes/app_pages.dart';
 import 'package:horoscope_guide/view/home/home_controller.dart';
 
 class HomeView extends StatelessWidget {
-  Database database = Database();
   final HomeController _controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          database.readData();
-        },
-      ),
       appBar: AppBar(
         backgroundColor: const Color(0xFF01122C),
         title: const Text(
@@ -27,13 +20,20 @@ class HomeView extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          //color: const Color(0xFF01122C),
+          padding: const EdgeInsets.all(20),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: MediaQuery.of(context).size.height / 20),
+              ElevatedButton(
+                child: const Text(
+                  'What is my horoscope?',
+                ),
+                onPressed: () => Get.toNamed(Routes.whichHoroscope),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height / 20),
               Row(
                 children: [
                   buildHoroscopeCard(
@@ -41,11 +41,13 @@ class HomeView extends StatelessWidget {
                     'ARIES',
                     '21 March - 20 April',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'TAURUS',
                     '21 April - 21 May',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'GEMINI',
@@ -61,11 +63,13 @@ class HomeView extends StatelessWidget {
                     'CANCER',
                     '22 June - 23 July',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'LEO',
                     '24 July - 23 August',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'VIRGO',
@@ -81,11 +85,13 @@ class HomeView extends StatelessWidget {
                     'LIBRA',
                     '24 September - 23 October',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'SCORPIO',
                     '24 October - 22 November',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'SAGITTARIUS',
@@ -101,11 +107,13 @@ class HomeView extends StatelessWidget {
                     'CAPRICORN',
                     '23 December - 20 January',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'AQUARIUS',
                     '21 January - 19 February',
                   ),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   buildHoroscopeCard(
                     context,
                     'PISCES',
@@ -129,12 +137,13 @@ class HomeView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width / 3,
-            height: MediaQuery.of(context).size.height / 10,
+            width: MediaQuery.of(context).size.width / 3.5,
+            height: MediaQuery.of(context).size.height / 11,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/horoscopes/${horoscope.toLowerCase()}.png'),
+                  'assets/horoscopes/${horoscope.toLowerCase()}.png',
+                ),
               ),
               borderRadius: const BorderRadius.all(
                 Radius.circular(25.0),
@@ -145,15 +154,12 @@ class HomeView extends StatelessWidget {
             horoscope,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontSize: 15,
             ),
           ),
           Text(
             date,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 8,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 7.5),
           ),
         ],
       ),
