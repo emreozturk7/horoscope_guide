@@ -43,13 +43,14 @@ class WhichHoroscope extends StatelessWidget {
                     );
                   }).toList(),
                 ),
+                SizedBox(width: 20),
                 DropdownButton<String>(
                   onChanged: (String? newValue) {
                     dropDownValue = newValue!;
                   },
-                  value: dropDownValue,
-                  items:
-                      <String>[].map<DropdownMenuItem<String>>((String value) {
+                  value: 'emre',
+                  items: <String>['emre 1']
+                      .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
