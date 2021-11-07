@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_guide/model/user_model.dart';
 import 'package:horoscope_guide/routes/app_pages.dart';
 import 'package:horoscope_guide/utils/splash_screen.dart';
 
@@ -22,7 +23,7 @@ class Main extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           return GetMaterialApp(
-            initialRoute: Routes.homeView,
+            initialRoute: Routes.loginView,
             title: 'Horoscope Guide',
             getPages: AppPages.routes,
           );
