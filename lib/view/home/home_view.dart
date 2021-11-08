@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horoscope_guide/routes/app_pages.dart';
@@ -10,6 +11,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () async => await FirebaseAuth.instance.signOut(),
+            icon: Icon(Icons.add),
+          ),
+        ],
         backgroundColor: const Color(0xFF01122C),
         title: const Text(
           'Horoscope Guide',

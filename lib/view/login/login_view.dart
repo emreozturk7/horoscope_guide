@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_guide/model/user_model.dart';
 import 'package:horoscope_guide/view/login/login_controller.dart';
 
 class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final user = Get.put(MyUser);
     final LoginController _controller = Get.put(LoginController());
     var deviceSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -17,7 +15,6 @@ class LoginView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('$user'),
             Padding(
               padding: const EdgeInsets.only(
                 left: 25,
@@ -27,8 +24,7 @@ class LoginView extends StatelessWidget {
                 height: deviceSize.height / 10,
                 width: deviceSize.width / 1.5,
                 child: TextField(
-                  controller: _controller.passwordCtrl,
-                  obscureText: true,
+                  controller: _controller.emailCtrl,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
@@ -67,7 +63,7 @@ class LoginView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100.0),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () => _controller.signIn(),
             ),
           ],
         ),
